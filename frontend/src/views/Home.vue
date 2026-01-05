@@ -12,7 +12,7 @@ const categorizedTools = TOOL_CATEGORIES.map(category => ({
     <!-- Hero -->
     <div class="text-center mb-12">
       <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-        MultiTools
+        Toolvia
       </h1>
       <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
         A collection of useful online tools for developers and designers.

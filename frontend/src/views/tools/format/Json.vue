@@ -55,7 +55,7 @@ const clear = () => {
 
 const loadSample = () => {
   input.value = `{
-  "name": "MultiTools",
+  "name": "Toolvia",
   "version": "1.0.0",
   "features": ["encoding", "hash", "format"],
   "config": {
