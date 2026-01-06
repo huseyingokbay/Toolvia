@@ -58,6 +58,59 @@ public class FormatController : ControllerBase
         }
     }
 
+    [HttpPost("json/unescape")]
+    public ActionResult<FormatResponse> UnescapeJson([FromBody] FormatRequest request)
+    {
+        try
+        {
+            var input = request.Input.Trim();
+            string unescaped;
+
+            // If wrapped in quotes, it's a JSON string containing escaped JSON
+            if ((input.StartsWith("\"") && input.EndsWith("\"")) ||
+                (input.StartsWith("'") && input.EndsWith("'")))
+            {
+                try
+                {
+                    // Try to parse as JSON string first
+                    unescaped = JsonSerializer.Deserialize<string>(input) ?? input;
+                }
+                catch
+                {
+                    // Manual unescape if JSON parsing fails
+                    unescaped = input[1..^1]
+                        .Replace("\\\"", "\"")
+                        .Replace("\\'", "'")
+                        .Replace("\\\\", "\\")
+                        .Replace("\\n", "\n")
+                        .Replace("\\r", "\r")
+                        .Replace("\\t", "\t");
+                }
+            }
+            else
+            {
+                // Not wrapped in quotes, just unescape
+                unescaped = input
+                    .Replace("\\\"", "\"")
+                    .Replace("\\'", "'")
+                    .Replace("\\\\", "\\")
+                    .Replace("\\n", "\n")
+                    .Replace("\\r", "\r")
+                    .Replace("\\t", "\t");
+            }
+
+            // Validate and format the result
+            var jsonDoc = JsonDocument.Parse(unescaped);
+            var options = new JsonSerializerOptions { WriteIndented = true };
+            var formatted = JsonSerializer.Serialize(jsonDoc, options);
+            return Ok(new FormatResponse(formatted, true));
+        }
+        catch (JsonException ex)
+        {
+            return Ok(new FormatResponse("", false, $"Failed to unescape: {ex.Message}"));
+        }
+    }
+
     [HttpPost("xml/format")]
     public ActionResult<FormatResponse> FormatXml([FromBody] FormatRequest request)
     {

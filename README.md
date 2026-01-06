@@ -23,7 +23,7 @@ A collection of useful online tools for developers and designers. Built with Vue
 - **Color Converter** - Convert between HEX, RGB, HSL
 
 ### Format
-- **JSON Formatter** - Format, validate, and minify JSON
+- **JSON Formatter** - Format, validate, minify, and unescape JSON
 - **XML Formatter** - Format, validate, and minify XML
 - **SQL Formatter** - Format SQL queries
 
