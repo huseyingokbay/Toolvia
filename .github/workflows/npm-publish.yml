@@ -16,7 +16,7 @@ jobs:
       # 2. Node.js yükle
       - uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '22'
       
       # 3. Bağımlılıkları yükle
       - name: Install dependencies
