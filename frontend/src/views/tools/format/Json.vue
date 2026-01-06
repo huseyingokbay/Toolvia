@@ -48,6 +48,50 @@ const minify = () => {
   }
 }
 
+const unescape = () => {
+  const trimmed = input.value.trim()
+  if (!trimmed) return
+
+  try {
+    // First, try to parse as a JSON string (e.g., "{\"key\": \"value\"}")
+    let unescaped = trimmed
+
+    // If it starts and ends with quotes, it might be a stringified JSON
+    if ((trimmed.startsWith('"') && trimmed.endsWith('"')) ||
+        (trimmed.startsWith("'") && trimmed.endsWith("'"))) {
+      // Try to parse as JSON string first
+      try {
+        unescaped = JSON.parse(trimmed)
+      } catch {
+        // If that fails, manually unescape common patterns
+        unescaped = trimmed.slice(1, -1)
+          .replace(/\\"/g, '"')
+          .replace(/\\'/g, "'")
+          .replace(/\\\\/g, '\\')
+          .replace(/\\n/g, '\n')
+          .replace(/\\r/g, '\r')
+          .replace(/\\t/g, '\t')
+      }
+    } else {
+      // Not wrapped in quotes, just unescape the content
+      unescaped = trimmed
+        .replace(/\\"/g, '"')
+        .replace(/\\'/g, "'")
+        .replace(/\\\\/g, '\\')
+        .replace(/\\n/g, '\n')
+        .replace(/\\r/g, '\r')
+        .replace(/\\t/g, '\t')
+    }
+
+    // Verify it's valid JSON and format it
+    const parsed = JSON.parse(unescaped)
+    input.value = JSON.stringify(parsed, null, indentSize.value)
+    error.value = ''
+  } catch (e: any) {
+    error.value = 'Failed to unescape: ' + e.message
+  }
+}
+
 const clear = () => {
   input.value = ''
   error.value = ''
@@ -87,6 +131,9 @@ const loadSample = () => {
           </button>
           <button @click="minify" class="tool-button-secondary" :disabled="!parsedJson">
             Minify
+          </button>
+          <button @click="unescape" class="tool-button-secondary">
+            Unescape
           </button>
           <button @click="loadSample" class="tool-button-secondary">
             Sample
