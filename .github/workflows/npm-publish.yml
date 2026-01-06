@@ -20,11 +20,11 @@ jobs:
       
       # 3. Bağımlılıkları yükle
       - name: Install dependencies
-        run: npm install
+        run: cd frontend && npm install
       
       # 4. Build et
       - name: Build Vue app
-        run: npm run build
+        run: cd frontend && npm run build
       
       # 5. Hosting'e deploy et (FTP örneği)
       - name: Upload to hosting
@@ -33,5 +33,5 @@ jobs:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./dist/
+          local-dir: ./frontend/dist/
           server-dir: /public_html/
