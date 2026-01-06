@@ -1,4 +1,4 @@
-namespace MultiTools.API.Models;
+namespace Toolvia.API.Models;
 
 // Encoding Models
 public record EncodeDecodeRequest(string Input, string? Separator = null);

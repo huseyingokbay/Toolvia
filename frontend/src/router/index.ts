@@ -147,7 +147,7 @@ const router = createRouter({
 
 router.beforeEach((to, _from, next) => {
   const title = to.meta.title as string | undefined
-  document.title = title ? `${title} | MultiTools` : 'MultiTools'
+  document.title = title ? `${title} | Toolvia` : 'Toolvia'
   next()
 })
 

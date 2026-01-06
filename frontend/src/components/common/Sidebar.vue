@@ -45,7 +45,7 @@ const categorizedTools = computed(() => {
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
           </svg>
         </div>
-        <span class="text-lg font-semibold text-gray-900 dark:text-white">MultiTools</span>
+        <span class="text-lg font-semibold text-gray-900 dark:text-white">Toolvia</span>
       </router-link>
     </div>
 
@@ -134,7 +134,7 @@ const categorizedTools = computed(() => {
     <!-- Footer -->
     <div class="p-4 border-t border-gray-200 dark:border-dark-800">
       <a
-        href="https://github.com"
+        href="https://github.com/huseyingokbay/Toolvia"
         target="_blank"
         class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
       >
