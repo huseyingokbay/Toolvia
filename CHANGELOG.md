@@ -70,3 +70,21 @@ HTML kodlarını güzelleştiren (beautify) ve tek satır haline getiren (minify
 
 **README.md güncellendi:**
 - Format bölümüne HTML Formatter eklendi
+
+### Google AdSense Entegrasyonu
+
+Sayfalara Google AdSense reklam alanları eklendi.
+
+**Eklenen dosyalar:**
+- `frontend/src/components/common/GoogleAd.vue` - Reusable reklam komponenti
+
+**Güncellenen dosyalar:**
+- `frontend/index.html` - AdSense script eklendi
+- `frontend/src/components/common/ToolLayout.vue` - Üst ve alt reklam alanları
+- `frontend/src/views/Home.vue` - Üst ve alt reklam alanları
+
+**Reklam konumları:**
+- Ana sayfa: Hero bölümü altında ve sayfa sonunda
+- Tool sayfaları: Başlık altında ve içerik sonunda
+
+**Not:** `ca-pub-XXXXXXXXXXXXXXXX` değerini kendi AdSense Publisher ID'nizle değiştirin.
