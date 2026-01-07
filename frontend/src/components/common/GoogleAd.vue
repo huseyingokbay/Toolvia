@@ -1,29 +1,63 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 
-const props = defineProps<{
+defineProps<{
   adSlot: string
   adFormat?: 'auto' | 'horizontal' | 'vertical' | 'rectangle'
   fullWidth?: boolean
 }>()
 
+const adContainer = ref<HTMLElement | null>(null)
 const adLoaded = ref(false)
+let observer: IntersectionObserver | null = null
 
-onMounted(() => {
+const loadAd = () => {
+  if (adLoaded.value) return
+
   try {
-    // Push ad to adsbygoogle queue
-    if (typeof window !== 'undefined' && (window as any).adsbygoogle) {
-      (window as any).adsbygoogle.push({})
-      adLoaded.value = true
+    // Check if container has width
+    if (adContainer.value && adContainer.value.offsetWidth > 0) {
+      if (typeof window !== 'undefined' && (window as any).adsbygoogle) {
+        (window as any).adsbygoogle.push({})
+        adLoaded.value = true
+      }
     }
   } catch (e) {
-    console.error('AdSense error:', e)
+    // Silently handle AdSense errors in development
+    if (import.meta.env.PROD) {
+      console.error('AdSense error:', e)
+    }
+  }
+}
+
+onMounted(() => {
+  // Use IntersectionObserver to load ad when visible
+  observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && entry.intersectionRatio > 0) {
+          // Small delay to ensure layout is complete
+          setTimeout(loadAd, 100)
+        }
+      })
+    },
+    { threshold: 0.1 }
+  )
+
+  if (adContainer.value) {
+    observer.observe(adContainer.value)
+  }
+})
+
+onUnmounted(() => {
+  if (observer) {
+    observer.disconnect()
   }
 })
 </script>
 
 <template>
-  <div class="ad-container my-4">
+  <div ref="adContainer" class="ad-container my-4">
     <ins
       class="adsbygoogle"
       :style="{ display: 'block', textAlign: 'center' }"
@@ -38,14 +72,16 @@ onMounted(() => {
 <style scoped>
 .ad-container {
   min-height: 90px;
+  min-width: 300px;
   background-color: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
-/* Placeholder for development */
-.ad-container:empty::before {
-  content: '';
+/* Hide in development when no ads loaded */
+.ad-container:has(.adsbygoogle[data-ad-status="unfilled"]) {
+  min-height: 0;
 }
 </style>
