@@ -48,6 +48,7 @@ export const TOOLS: Tool[] = [
   { id: 'json', name: 'JSON Formatter', description: 'Format and validate JSON', icon: 'DocumentTextIcon', path: '/tools/format/json', category: 'format' },
   { id: 'xml', name: 'XML Formatter', description: 'Format and validate XML', icon: 'DocumentTextIcon', path: '/tools/format/xml', category: 'format' },
   { id: 'sql', name: 'SQL Formatter', description: 'Format SQL queries', icon: 'CircleStackIcon', path: '/tools/format/sql', category: 'format' },
+  { id: 'html-formatter', name: 'HTML Formatter', description: 'Format and minify HTML', icon: 'CodeBracketSquareIcon', path: '/tools/format/html', category: 'format' },
 
   // Generator
   { id: 'uuid', name: 'UUID Generator', description: 'Generate UUIDs', icon: 'KeyIcon', path: '/tools/generator/uuid', category: 'generator' },

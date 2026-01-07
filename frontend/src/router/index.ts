@@ -101,6 +101,12 @@ const routes: RouteRecordRaw[] = [
     component: () => import('../views/tools/format/Sql.vue'),
     meta: { title: 'SQL Formatter', category: 'format' }
   },
+  {
+    path: '/tools/format/html',
+    name: 'HTMLFormatter',
+    component: () => import('../views/tools/format/HtmlFormatter.vue'),
+    meta: { title: 'HTML Formatter', category: 'format' }
+  },
   // Generator Tools
   {
     path: '/tools/generator/uuid',

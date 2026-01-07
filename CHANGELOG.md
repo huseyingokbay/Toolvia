@@ -13,9 +13,16 @@ Bu dosya projede yapılan değişiklikleri takip eder.
 - Proje yapısı dokümantasyonu
 
 ### JSON Formatter - Unescape Özelliği
-**Dosya:** `frontend/src/views/tools/format/Json.vue`
 
-Escaped/stringified JSON'ı normal JSON'a çeviren "Unescape" butonu eklendi.
+Escaped/stringified JSON'ı normal JSON'a çeviren "Unescape" özelliği eklendi.
+
+**Frontend:**
+- **Dosya:** `frontend/src/views/tools/format/Json.vue`
+- "Unescape" butonu eklendi
+
+**Backend:**
+- **Dosya:** `backend/Controllers/FormatController.cs`
+- **Endpoint:** `POST /api/format/json/unescape`
 
 **Kullanım:**
 ```
@@ -37,3 +44,29 @@ Giriş:  "{\"incoming\":[{\"day\":\"2026-01-05\",\"dailyCount\":889}]}"
 - `\n` → newline
 - `\r` → carriage return
 - `\t` → tab
+
+**README.md güncellendi:**
+- JSON Formatter açıklamasına "unescape" eklendi
+
+### HTML Formatter - Yeni Modül
+
+HTML kodlarını güzelleştiren (beautify) ve tek satır haline getiren (minify) yeni modül eklendi.
+
+**Frontend:**
+- **Dosya:** `frontend/src/views/tools/format/HtmlFormatter.vue`
+- **Route:** `/tools/format/html`
+- Beautify ve Minify butonları
+- Indent size seçimi (2/4 space)
+
+**Backend:**
+- **Dosya:** `backend/Controllers/FormatController.cs`
+- **Endpoint:** `POST /api/format/html/format` - HTML beautify
+- **Endpoint:** `POST /api/format/html/minify` - HTML minify
+
+**Özellikler:**
+- Self-closing tag desteği (br, hr, img, input, meta, vb.)
+- DOCTYPE ve comment desteği
+- Otomatik indentation
+
+**README.md güncellendi:**
+- Format bölümüne HTML Formatter eklendi
