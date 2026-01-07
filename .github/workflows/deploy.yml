@@ -3,7 +3,7 @@ name: Build and Deploy Vue App
 on:
   push:
     branches:
-      - claude/update-claude-md-3AK5l  # main branch'e push atıldığında çalışsın
+      - main  # main branch'e push atıldığında çalışsın
 
 jobs:
   build-and-deploy:
