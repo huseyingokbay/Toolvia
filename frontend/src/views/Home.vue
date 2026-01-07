@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { TOOL_CATEGORIES, getToolsByCategory } from '../types/tool'
+import GoogleAd from '../components/common/GoogleAd.vue'
 
 const categorizedTools = TOOL_CATEGORIES.map(category => ({
   ...category,
@@ -10,7 +11,7 @@ const categorizedTools = TOOL_CATEGORIES.map(category => ({
 <template>
   <div class="p-4 sm:p-6 lg:p-8">
     <!-- Hero -->
-    <div class="text-center mb-12">
+    <div class="text-center mb-8">
       <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
         Toolvia
       </h1>
@@ -18,6 +19,11 @@ const categorizedTools = TOOL_CATEGORIES.map(category => ({
         A collection of useful online tools for developers and designers.
         Encode, decode, format, generate, and convert data with ease.
       </p>
+    </div>
+
+    <!-- Top Ad -->
+    <div class="max-w-4xl mx-auto mb-8">
+      <GoogleAd ad-slot="1111111111" ad-format="horizontal" />
     </div>
 
     <!-- Categories -->
@@ -72,6 +78,11 @@ const categorizedTools = TOOL_CATEGORIES.map(category => ({
           </router-link>
         </div>
       </section>
+    </div>
+
+    <!-- Bottom Ad -->
+    <div class="max-w-4xl mx-auto mt-12">
+      <GoogleAd ad-slot="2222222222" ad-format="horizontal" />
     </div>
   </div>
 </template>
