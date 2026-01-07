@@ -31,5 +31,5 @@ jobs:
         with:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USER }}
-          password: ${{ secrets.FTP_PASSWORD }}
+          password: ${{ secrets.FTP_PASS }}
           local-dir: ./frontend/dist/
