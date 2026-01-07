@@ -4,8 +4,7 @@ on:
   push:
     branches:
       - main
-      - Developer
-
+      
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -16,11 +15,7 @@ jobs:
       API_URL: http://hsyngkby.com
       VITE_ADSENSE_CLIENT: ${{ secrets.ADSENSE_CLIENT_ID }}
     
-    steps:
-      
-      - name: Deploy
-        run: echo "Deploying to ${{ vars.DEPLOY_URL }}"
-        
+    steps:        
       - uses: actions/checkout@v3
       
       - uses: actions/setup-node@v3
