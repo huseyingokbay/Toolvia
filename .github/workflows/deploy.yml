@@ -2,7 +2,7 @@ name: Build and Deploy Vue App
 on:
   push:
     branches:
-      - main  # main branch'e push atıldığında çalışsın
+      - claude/*  # main branch'e push atıldığında çalışsın
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
