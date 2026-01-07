@@ -47,3 +47,26 @@ Giriş:  "{\"incoming\":[{\"day\":\"2026-01-05\",\"dailyCount\":889}]}"
 
 **README.md güncellendi:**
 - JSON Formatter açıklamasına "unescape" eklendi
+
+### HTML Formatter - Yeni Modül
+
+HTML kodlarını güzelleştiren (beautify) ve tek satır haline getiren (minify) yeni modül eklendi.
+
+**Frontend:**
+- **Dosya:** `frontend/src/views/tools/format/HtmlFormatter.vue`
+- **Route:** `/tools/format/html`
+- Beautify ve Minify butonları
+- Indent size seçimi (2/4 space)
+
+**Backend:**
+- **Dosya:** `backend/Controllers/FormatController.cs`
+- **Endpoint:** `POST /api/format/html/format` - HTML beautify
+- **Endpoint:** `POST /api/format/html/minify` - HTML minify
+
+**Özellikler:**
+- Self-closing tag desteği (br, hr, img, input, meta, vb.)
+- DOCTYPE ve comment desteği
+- Otomatik indentation
+
+**README.md güncellendi:**
+- Format bölümüne HTML Formatter eklendi

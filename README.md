@@ -26,6 +26,7 @@ A collection of useful online tools for developers and designers. Built with Vue
 - **JSON Formatter** - Format, validate, minify, and unescape JSON
 - **XML Formatter** - Format, validate, and minify XML
 - **SQL Formatter** - Format SQL queries
+- **HTML Formatter** - Beautify and minify HTML code
 
 ### Generator
 - **UUID Generator** - Generate random UUIDs
