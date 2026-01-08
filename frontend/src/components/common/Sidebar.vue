@@ -28,12 +28,12 @@ const categorizedTools = computed(() => {
   <!-- Sidebar -->
   <aside
     :class="[
-      'fixed lg:static inset-y-0 left-0 z-50',
+      'fixed inset-y-0 left-0 z-50',
       'w-64 bg-white dark:bg-dark-900 border-r border-gray-200 dark:border-dark-800',
-      'transform transition-transform duration-200 ease-in-out',
+      'transform transition-all duration-200 ease-in-out',
       'flex flex-col',
-      sidebarStore.isMobileOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0',
-      !sidebarStore.isOpen && 'lg:-translate-x-full lg:w-0 lg:border-0'
+      sidebarStore.isMobileOpen ? 'translate-x-0' : '-translate-x-full',
+      sidebarStore.isOpen ? 'lg:translate-x-0' : 'lg:-translate-x-64'
     ]"
   >
     <!-- Logo -->
