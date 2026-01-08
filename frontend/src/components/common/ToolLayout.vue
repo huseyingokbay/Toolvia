@@ -16,7 +16,7 @@ defineProps<{
     </div>
 
     <!-- Top Ad -->
-    <GoogleAd ad-slot="1234567890" ad-format="horizontal" class="mb-6" />
+    <GoogleAd ad-slot="1234567890" ad-format="horizontal" full-width=true class="mb-6" />
 
     <!-- Content -->
     <div class="tool-card p-6">
@@ -24,6 +24,6 @@ defineProps<{
     </div>
 
     <!-- Bottom Ad -->
-    <GoogleAd ad-slot="0987654321" ad-format="horizontal" class="mt-6" />
+    <GoogleAd ad-slot="0987654321" ad-format="horizontal" full-width=true class="mt-6" />
   </div>
 </template>
