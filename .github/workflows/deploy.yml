@@ -2,11 +2,12 @@ name: Build and Deploy Vue App
 on:
   push:
     branches:
-      - claude/*  # main branch'e push atıldığında çalışsın
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    environment: toolvia.hsyngkby.com
+    environment: hsyngkby
+
     steps:
     
       # 1. Kodu indir
