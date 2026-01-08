@@ -63,11 +63,11 @@ onUnmounted(() => {
   <div ref="adContainer" class="ad-container my-4">
     <ins
       class="adsbygoogle"
-      :style="{ display: 'block', textAlign: 'center' }"
-      :data-ad-client="'ca-pub-7127218618005764'"
+      style="display:block;width:100%;min-width:320px;text-align:center"
+      data-ad-client="ca-pub-7127218618005764"
       :data-ad-slot="adSlot"
       :data-ad-format="adFormat || 'auto'"
-      :data-full-width-responsive="'true'"
+      data-full-width-responsive="true"
     ></ins>
   </div>
 </template>
