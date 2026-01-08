@@ -61,7 +61,7 @@ onUnmounted(() => {
     <ins
       class="adsbygoogle"
       :style="{ display: 'block', textAlign: 'center' }"
-      :data-ad-client="'${{ secrets.ADSENSE_CLIENT_ID }}'"
+      :data-ad-client="'ca-pub-7127218618005764'"
       :data-ad-slot="adSlot"
       :data-ad-format="adFormat || 'auto'"
       :data-full-width-responsive="fullWidth !== false ? 'true' : 'false'"
