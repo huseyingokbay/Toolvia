@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref } from 'vue'
+import { onMounted, onUnmounted, ref, nextTick } from 'vue'
 
 defineProps<{
   adSlot: string
@@ -11,37 +11,42 @@ const adContainer = ref<HTMLElement | null>(null)
 const adLoaded = ref(false)
 let observer: IntersectionObserver | null = null
 
+const canRender = () => {
+  if (!adContainer.value) return false
+  return adContainer.value.getBoundingClientRect().width >= 300
+}
+
 const loadAd = () => {
   if (adLoaded.value) return
+  if (!canRender()) return
 
-  try {
-    // Check if container has width
-    if (adContainer.value && adContainer.value.offsetWidth > 0) {
-      if (typeof window !== 'undefined' && (window as any).adsbygoogle) {
-        (window as any).adsbygoogle.push({})
-        adLoaded.value = true
-      }
-    }
-  } catch (e) {
-    // Silently handle AdSense errors in development
-    if (import.meta.env.PROD) {
-      console.error('AdSense error:', e)
+  if (typeof window !== 'undefined' && (window as any).adsbygoogle) {
+    try {
+      ;(window as any).adsbygoogle.push({})
+      adLoaded.value = true
+    } catch {
+      // AdSense throws on invalid size – ignore and retry on next intersection
     }
   }
 }
 
-onMounted(() => {
-  // Use IntersectionObserver to load ad when visible
+onMounted(async () => {
+  await nextTick()
+
   observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting && entry.intersectionRatio > 0) {
-          // Small delay to ensure layout is complete
-          setTimeout(loadAd, 100)
+          requestAnimationFrame(() => {
+            setTimeout(loadAd, 150)
+          })
         }
       })
     },
-    { threshold: 0.1 }
+    {
+      rootMargin: '100px',
+      threshold: 0.01
+    }
   )
 
   if (adContainer.value) {
@@ -50,9 +55,7 @@ onMounted(() => {
 })
 
 onUnmounted(() => {
-  if (observer) {
-    observer.disconnect()
-  }
+  observer?.disconnect()
 })
 </script>
 
@@ -71,17 +74,16 @@ onUnmounted(() => {
 
 <style scoped>
 .ad-container {
+  width: 100%;
+  min-width: 320px;
   min-height: 90px;
-  min-width: 300px;
-  background-color: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
   overflow: hidden;
 }
 
-/* Hide in development when no ads loaded */
-.ad-container:has(.adsbygoogle[data-ad-status="unfilled"]) {
-  min-height: 0;
+/* Parent max-w, grid, flex vs ne olursa olsun gerçek width propagate edilir */
+.ad-container > .adsbygoogle {
+  width: 100% !important;
+  min-width: 320px;
 }
 </style>
