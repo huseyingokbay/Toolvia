@@ -64,7 +64,7 @@ onUnmounted(() => {
       :data-ad-client="'ca-pub-7127218618005764'"
       :data-ad-slot="adSlot"
       :data-ad-format="adFormat || 'auto'"
-      :data-full-width-responsive="fullWidth !== false ? 'true' : 'false'"
+      :data-full-width-responsive="'true'"
     ></ins>
   </div>
 </template>
