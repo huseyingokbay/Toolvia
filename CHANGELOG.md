@@ -88,3 +88,44 @@ Sayfalara Google AdSense reklam alanları eklendi.
 - Tool sayfaları: Başlık altında ve içerik sonunda
 
 **Not:** `ca-pub-XXXXXXXXXXXXXXXX` değerini kendi AdSense Publisher ID'nizle değiştirin.
+
+### Hash Generator - Yeni Birleşik Hash Modülü
+
+Tüm hash algoritmalarını tek bir sayfada toplayan yeni Hash Generator eklendi.
+
+**Frontend:**
+- **Dosya:** `frontend/src/views/tools/hash/HashGenerator.vue`
+- **Route:** `/tools/hash`
+- Text ve File input desteği
+- Tüm algoritmalar tek sayfada
+
+**Backend:**
+- **Dosya:** `backend/Controllers/HashController.cs`
+- SHA3 algoritmaları eklendi
+- File hashing endpoint eklendi: `POST /api/hash/file`
+
+**Desteklenen Algoritmalar:**
+- **MD:** MD5
+- **SHA-1:** SHA-1
+- **SHA-2:** SHA-224, SHA-256, SHA-384, SHA-512
+- **SHA-3:** SHA3-224, SHA3-256, SHA3-384, SHA3-512
+- **RIPEMD:** RIPEMD-160
+
+**Özellikler:**
+- Text input ile anlık hash hesaplama
+- File upload ile dosya hash'leme
+- Uppercase/lowercase seçimi
+- Copy to clipboard
+
+**API Endpoints:**
+- `POST /api/hash/md5`
+- `POST /api/hash/sha1`
+- `POST /api/hash/sha224`
+- `POST /api/hash/sha256`
+- `POST /api/hash/sha384`
+- `POST /api/hash/sha512`
+- `POST /api/hash/sha3-256`
+- `POST /api/hash/sha3-384`
+- `POST /api/hash/sha3-512`
+- `POST /api/hash/file?algorithm=sha256`
+- `POST /api/hash/all`

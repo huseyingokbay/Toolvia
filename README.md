@@ -11,10 +11,12 @@ A collection of useful online tools for developers and designers. Built with Vue
 - **HTML** - Encode/decode HTML entities
 
 ### Hash
-- **MD5** - Generate MD5 hash
-- **SHA-1** - Generate SHA-1 hash
-- **SHA-256** - Generate SHA-256 hash
-- **SHA-512** - Generate SHA-512 hash
+- **Hash Generator** - Unified hash tool with text and file support
+  - MD5
+  - SHA-1
+  - SHA-2 (SHA-224, SHA-256, SHA-384, SHA-512)
+  - SHA-3 (SHA3-224, SHA3-256, SHA3-384, SHA3-512)
+  - RIPEMD-160
 
 ### Converter
 - **Unit Converter** - Convert between units (length, weight, temperature, etc.)

@@ -33,10 +33,7 @@ export const TOOLS: Tool[] = [
   { id: 'html', name: 'HTML', description: 'Encode/decode HTML entities', icon: 'CodeBracketSquareIcon', path: '/tools/encoding/html', category: 'encoding' },
 
   // Hash
-  { id: 'md5', name: 'MD5', description: 'Generate MD5 hash', icon: 'FingerPrintIcon', path: '/tools/hash/md5', category: 'hash' },
-  { id: 'sha1', name: 'SHA-1', description: 'Generate SHA-1 hash', icon: 'FingerPrintIcon', path: '/tools/hash/sha1', category: 'hash' },
-  { id: 'sha256', name: 'SHA-256', description: 'Generate SHA-256 hash', icon: 'FingerPrintIcon', path: '/tools/hash/sha256', category: 'hash' },
-  { id: 'sha512', name: 'SHA-512', description: 'Generate SHA-512 hash', icon: 'FingerPrintIcon', path: '/tools/hash/sha512', category: 'hash' },
+  { id: 'hash-generator', name: 'Hash Generator', description: 'MD5, SHA, SHA3, RIPEMD & more', icon: 'FingerPrintIcon', path: '/tools/hash', category: 'hash' },
 
   // Converter
   { id: 'unit', name: 'Unit Converter', description: 'Convert between units', icon: 'ArrowsRightLeftIcon', path: '/tools/converter/unit', category: 'converter' },
