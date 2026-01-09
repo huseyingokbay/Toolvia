@@ -34,6 +34,12 @@ const routes: RouteRecordRaw[] = [
   },
   // Hash Tools
   {
+    path: '/tools/hash',
+    name: 'HashGenerator',
+    component: () => import('../views/tools/hash/HashGenerator.vue'),
+    meta: { title: 'Hash Generator', category: 'hash' }
+  },
+  {
     path: '/tools/hash/md5',
     name: 'MD5',
     component: () => import('../views/tools/hash/Md5.vue'),
