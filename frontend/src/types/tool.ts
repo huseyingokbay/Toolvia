@@ -7,7 +7,7 @@ export interface Tool {
   category: ToolCategory
 }
 
-export type ToolCategory = 'encoding' | 'hash' | 'converter' | 'format' | 'generator' | 'other'
+export type ToolCategory = 'encoding' | 'hash' | 'crypto' | 'converter' | 'format' | 'generator' | 'other'
 
 export interface ToolCategoryInfo {
   id: ToolCategory
@@ -19,6 +19,7 @@ export interface ToolCategoryInfo {
 export const TOOL_CATEGORIES: ToolCategoryInfo[] = [
   { id: 'encoding', name: 'Encoding', icon: 'CodeBracketIcon', description: 'Encode and decode data' },
   { id: 'hash', name: 'Hash', icon: 'FingerPrintIcon', description: 'Generate hash values' },
+  { id: 'crypto', name: 'Cryptography', icon: 'LockClosedIcon', description: 'Encrypt and decrypt data' },
   { id: 'converter', name: 'Converter', icon: 'ArrowsRightLeftIcon', description: 'Convert between formats' },
   { id: 'format', name: 'Format', icon: 'DocumentTextIcon', description: 'Format and validate data' },
   { id: 'generator', name: 'Generator', icon: 'SparklesIcon', description: 'Generate random data' },
@@ -34,6 +35,14 @@ export const TOOLS: Tool[] = [
 
   // Hash
   { id: 'hash-generator', name: 'Hash Generator', description: 'MD5, SHA, SHA3, RIPEMD & more', icon: 'FingerPrintIcon', path: '/tools/hash', category: 'hash' },
+
+  // Cryptography
+  { id: 'aes', name: 'AES', description: 'AES encryption/decryption', icon: 'LockClosedIcon', path: '/tools/crypto/aes', category: 'crypto' },
+  { id: 'des', name: 'DES', description: 'DES encryption/decryption', icon: 'LockClosedIcon', path: '/tools/crypto/des', category: 'crypto' },
+  { id: 'triple-des', name: 'Triple DES', description: '3DES encryption/decryption', icon: 'LockClosedIcon', path: '/tools/crypto/triple-des', category: 'crypto' },
+  { id: 'rc4', name: 'RC4', description: 'RC4 encryption/decryption', icon: 'LockClosedIcon', path: '/tools/crypto/rc4', category: 'crypto' },
+  { id: 'rsa', name: 'RSA', description: 'RSA key generation, encrypt/decrypt, sign/verify', icon: 'KeyIcon', path: '/tools/crypto/rsa', category: 'crypto' },
+  { id: 'ecdsa', name: 'ECDSA', description: 'ECDSA key generation, sign/verify', icon: 'KeyIcon', path: '/tools/crypto/ecdsa', category: 'crypto' },
 
   // Converter
   { id: 'unit', name: 'Unit Converter', description: 'Convert between units', icon: 'ArrowsRightLeftIcon', path: '/tools/converter/unit', category: 'converter' },
