@@ -39,6 +39,43 @@ const routes: RouteRecordRaw[] = [
     component: () => import('../views/tools/hash/HashGenerator.vue'),
     meta: { title: 'Hash Generator', category: 'hash' }
   },
+  // Cryptography Tools
+  {
+    path: '/tools/crypto/aes',
+    name: 'AES',
+    component: () => import('../views/tools/crypto/Aes.vue'),
+    meta: { title: 'AES Encryption/Decryption', category: 'crypto' }
+  },
+  {
+    path: '/tools/crypto/des',
+    name: 'DES',
+    component: () => import('../views/tools/crypto/Des.vue'),
+    meta: { title: 'DES Encryption/Decryption', category: 'crypto' }
+  },
+  {
+    path: '/tools/crypto/triple-des',
+    name: 'TripleDES',
+    component: () => import('../views/tools/crypto/TripleDes.vue'),
+    meta: { title: 'Triple DES Encryption/Decryption', category: 'crypto' }
+  },
+  {
+    path: '/tools/crypto/rc4',
+    name: 'RC4',
+    component: () => import('../views/tools/crypto/Rc4.vue'),
+    meta: { title: 'RC4 Encryption/Decryption', category: 'crypto' }
+  },
+  {
+    path: '/tools/crypto/rsa',
+    name: 'RSA',
+    component: () => import('../views/tools/crypto/Rsa.vue'),
+    meta: { title: 'RSA Encryption/Signing', category: 'crypto' }
+  },
+  {
+    path: '/tools/crypto/ecdsa',
+    name: 'ECDSA',
+    component: () => import('../views/tools/crypto/Ecdsa.vue'),
+    meta: { title: 'ECDSA Signing', category: 'crypto' }
+  },
   {
     path: '/tools/hash/md5',
     name: 'MD5',

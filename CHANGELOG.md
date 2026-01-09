@@ -4,6 +4,50 @@ Bu dosya projede yapılan değişiklikleri takip eder.
 
 ---
 
+## 2026-01-09
+
+### Cryptography Module - Şifreleme Araçları
+
+Yeni Cryptography kategorisi eklendi. Simetrik ve asimetrik şifreleme algoritmaları destekleniyor.
+
+**Frontend:**
+- **Dosya:** `frontend/src/views/tools/crypto/Aes.vue`
+- **Dosya:** `frontend/src/views/tools/crypto/Des.vue`
+- **Dosya:** `frontend/src/views/tools/crypto/TripleDes.vue`
+- **Dosya:** `frontend/src/views/tools/crypto/Rc4.vue`
+- **Dosya:** `frontend/src/views/tools/crypto/Rsa.vue`
+- **Dosya:** `frontend/src/views/tools/crypto/Ecdsa.vue`
+
+**Eklenen Araçlar:**
+
+#### Simetrik Şifreleme (Symmetric Encryption)
+- **AES** - 128/192/256-bit key, CBC/ECB/CTR/CFB/OFB modları, PBKDF2 key derivation
+- **DES** - 64-bit key (56-bit effective), tüm modlar
+- **Triple DES (3DES)** - 128/192-bit key, tüm modlar
+- **RC4** - Stream cipher, variable key length
+
+#### Asimetrik Şifreleme (Asymmetric Encryption)
+- **RSA** - Key generator (1024/2048/4096-bit), Encrypt/Decrypt, Sign/Verify
+- **ECDSA** - Key generator (P-256/P-384/P-521 curves), Sign/Verify
+
+**Özellikler:**
+- Input/Output encoding seçenekleri (UTF-8, Hex, Base64)
+- PBKDF2 password-based key derivation
+- Random salt ve IV generation
+- Custom iteration count
+- PEM ve JWK key formatları
+- Real-time encryption/decryption
+
+**Routes:**
+- `/tools/crypto/aes`
+- `/tools/crypto/des`
+- `/tools/crypto/triple-des`
+- `/tools/crypto/rc4`
+- `/tools/crypto/rsa`
+- `/tools/crypto/ecdsa`
+
+---
+
 ## 2026-01-06
 
 ### CLAUDE.md Oluşturuldu

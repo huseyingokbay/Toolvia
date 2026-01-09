@@ -18,6 +18,14 @@ A collection of useful online tools for developers and designers. Built with Vue
   - SHA-3 (SHA3-224, SHA3-256, SHA3-384, SHA3-512)
   - RIPEMD-160
 
+### Cryptography
+- **AES** - Advanced Encryption Standard (128/192/256-bit)
+- **DES** - Data Encryption Standard (64-bit)
+- **Triple DES** - 3DES encryption (128/192-bit)
+- **RC4** - Stream cipher encryption
+- **RSA** - Asymmetric encryption, signing, and key generation
+- **ECDSA** - Elliptic Curve Digital Signature Algorithm
+
 ### Converter
 - **Unit Converter** - Convert between units (length, weight, temperature, etc.)
 - **Case Converter** - Convert text case (camelCase, snake_case, etc.)
